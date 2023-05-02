@@ -9,10 +9,6 @@ app = FastAPI()
 api_key = "RGAPI-a19df1f2-7b5a-4bc1-a922-c932e9a98c7a" # Taken from https://developer.riotgames.com/
 auth = f"api_key={api_key}" # API key param to be used in every request
 
-server = "https://br1.api.riotgames.com" # BR1 host server route value
-region = "" # Regional Routing Value
-
-
 
 # Summoner
 
