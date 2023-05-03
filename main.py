@@ -5,9 +5,9 @@ from models import SummonerInfo, PlatformRoutingValues, RegionalRoutingValues
 
 app = FastAPI()
 
-
-dev_api_key = "RGAPI-a19df1f2-7b5a-4bc1-a922-c932e9a98c7a" # Taken from https://developer.riotgames.com/
-auth = f"api_key={dev_api_key}" # API key param to be used in every request
+# For development pourposes. Taken from https://developer.riotgames.com/
+api_key = os.getenv("RIOT_API_KEY", None) # Expires every 24 hours
+auth = f"api_key={api_key}" # API key param to be used in every request
 
 
 # Summoner
