@@ -1,5 +1,5 @@
-from pydantic import BaseModel
 from enum import Enum
+from pydantic import BaseModel
 
 """
 Platform IDs and regions as routing values, such as na1 and americas.
