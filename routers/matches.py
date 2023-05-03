@@ -8,7 +8,7 @@ from models import RegionalRoutingValues
 
 router = APIRouter(
     prefix="/matches",
-    dependencies=Depends[set_api_key()]
+    # dependencies=Depends[set_api_key()]
 )
 
 """
@@ -16,7 +16,7 @@ Get a list of match ids by puuid
 """
 @router.get("/puuid/{puuid}")
 async def get_summoner_matches_list_by_puuid(server: RegionalRoutingValues, puuid: str, api_key=set_api_key()) -> Any:
-    url = f"https://{server}/lol/match/v5/matches/by-puuid/{puuid}/ids?start=0&count=20&{api_key}"
+    url = f"https://{server}/lol/match/v5/matches/by-puuid/{puuid}/ids?start=0&count=20&api_key={api_key}"
     resp = requests.get(url)
     matches = resp.json()
     return matches
@@ -24,7 +24,7 @@ async def get_summoner_matches_list_by_puuid(server: RegionalRoutingValues, puui
 
 @router.get("/matchId/{matchId}")
 async def get_match_data_by_match_id(server: RegionalRoutingValues, match_id: str, puuid = None, api_key=set_api_key()) -> Any:
-    url = f"https://{server}/lol/match/v5/matches/{match_id}?{api_key}"
+    url = f"https://{server}/lol/match/v5/matches/{match_id}?api_key={api_key}"
     resp = requests.get(url)
     match_data = resp.json()
     
